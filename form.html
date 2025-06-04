@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Completo con Validación</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 Formulario Completo con Validación</h1>
+
+      <!-- FORMULARIO HTML -->
+      <form id="miFormulario">
+        <!-- Campo de texto simple -->
+        <div class="form-group">
+          <label for="nombre">Nombre completo:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            placeholder="Escribe tu nombre completo"
+            autofocus
+            pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{3,40}"
+            title="Solo letras y espacios (3-40 caracteres)" />
+        </div>
+
+        <!-- Campo de contraseña -->
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Mínimo 8 caracteres"
+            minlength="8"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+            title="Debe contener al menos una letra y un número" />
+        </div>
+
+        <!-- Campo de email -->
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="ejemplo@correo.com"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Formato: usuario@dominio.com" />
+        </div>
+
+        <!-- Campo de búsqueda -->
+        <div class="form-group">
+          <label for="busqueda">Búsqueda:</label>
+          <input
+            type="search"
+            id="busqueda"
+            name="busqueda"
+            placeholder="Buscar..."
+            pattern=".{3,}"
+            title="Mínimo 3 caracteres" />
+        </div>
+
+        <!-- Campo de teléfono -->
+        <div class="form-group">
+          <label for="telefono">Teléfono:</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="123-456-7890"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            title="Formato: 123-456-7890" />
+        </div>
+
+        <!-- Campo de URL -->
+        <div class="form-group">
+          <label for="sitio_web">Sitio web:</label>
+          <input
+            type="url"
+            id="sitio_web"
+            name="sitio_web"
+            placeholder="https://ejemplo.com"
+            pattern="https?://.+\..+"
+            title="Incluye http:// o https://" />
+        </div>
+
+        <!-- Campo de número -->
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input
+            type="number"
+            id="edad"
+            name="edad"
+            min="18"
+            max="100"
+            required
+            placeholder="18-100"
+            pattern="[0-9]{2}"
+            title="Debe ser entre 18 y 100 años" />
+        </div>
+
+        <!-- Campo de rango -->
+        <div class="form-group">
+          <label for="satisfaccion">Nivel de satisfacción (0-100):</label>
+          <input
+            type="range"
+            id="satisfaccion"
+            name="satisfaccion"
+            min="0"
+            max="100"
+            step="5"
+            value="50" />
+          <span id="valorRango">50</span>
+        </div>
+
+        <!-- Campo de fecha -->
+        <div class="form-group">
+          <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+          <input
+            type="date"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            required
+            pattern="\d{4}-\d{2}-\d{2}" />
+        </div>
+
+        <!-- Campo de fecha y hora local -->
+        <div class="form-group">
+          <label for="fecha_hora">Fecha y hora local:</label>
+          <input
+            type="datetime-local"
+            id="fecha_hora"
+            name="fecha_hora"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+            title="Formato: YYYY-MM-DDTHH:MM" />
+        </div>
+
+        <!-- Campo de mes -->
+        <div class="form-group">
+          <label for="mes">Mes:</label>
+          <input
+            type="month"
+            id="mes"
+            name="mes"
+            pattern="[0-9]{4}-[0-9]{2}"
+            title="Formato: YYYY-MM" />
+        </div>
+
+        <!-- Campo de semana -->
+        <div class="form-group">
+          <label for="semana">Semana:</label>
+          <input
+            type="week"
+            id="semana"
+            name="semana"
+            pattern="[0-9]{4}-W[0-9]{2}"
+            title="Formato: YYYY-WNN" />
+        </div>
+
+        <!-- Campo de hora -->
+        <div class="form-group">
+          <label for="hora">Hora:</label>
+          <input
+            type="time"
+            id="hora"
+            name="hora"
+            pattern="[0-9]{2}:[0-9]{2}"
+            title="Formato: HH:MM" />
+        </div>
+
+        <!-- Campo de color -->
+        <div class="form-group">
+          <label for="color_favorito">Color favorito:</label>
+          <input
+            type="color"
+            id="color_favorito"
+            name="color_favorito"
+            value="#ff0000"
+            pattern="#[a-fA-F0-9]{6}"
+            title="Formato hexadecimal (#RRGGBB)" />
+        </div>
+
+        <!-- Campo de selección -->
+        <div class="form-group">
+          <label for="ciudad">Ciudad:</label>
+          <select
+            id="ciudad"
+            name="ciudad"
+            required>
+            <option value="">Selecciona tu ciudad</option>
+            <option value="bogota">Bogotá</option>
+            <option value="medellin">Medellín</option>
+            <option value="cali">Cali</option>
+            <option value="barranquilla">Barranquilla</option>
+            <option value="otra">Otra</option>
+          </select>
+        </div>
+
+        <!-- Campo de selección múltiple -->
+        <div class="form-group">
+          <label for="intereses">Intereses (selección múltiple):</label>
+          <select
+            id="intereses"
+            name="intereses"
+            multiple
+            size="4">
+            <option value="deportes">Deportes</option>
+            <option value="musica">Música</option>
+            <option value="lectura">Lectura</option>
+            <option value="viajes">Viajes</option>
+            <option value="tecnologia">Tecnología</option>
+          </select>
+        </div>
+
+        <!-- Lista de datos -->
+        <div class="form-group">
+          <label for="navegadores">Navegador preferido:</label>
+          <input list="navegadores_list" id="navegadores" name="navegadores"
+                 pattern="Chrome|Firefox|Safari|Edge|Opera"
+                 title="Selecciona un navegador de la lista">
+          <datalist id="navegadores_list">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+            <option value="Opera">
+          </datalist>
+        </div>
+
+        <!-- Campos de radio -->
+        <div class="form-group">
+          <label>Experiencia en programación:</label>
+          <div class="input-group">
+            <input
+              type="radio"
+              id="principiante"
+              name="experiencia"
+              value="principiante"
+              required />
+            <label for="principiante" class="inline-label">Principiante</label>
+          </div>
+
+          <div class="input-group">
+            <input
+              type="radio"
+              id="intermedio"
+              name="experiencia"
+              value="intermedio" />
+            <label for="intermedio" class="inline-label">Intermedio</label>
+          </div>
+
+          <div class="input-group">
+            <input
+              type="radio"
+              id="avanzado"
+              name="experiencia"
+              value="avanzado" />
+            <label for="avanzado" class="inline-label">Avanzado</label>
+          </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-group">
+          <div class="input-group">
+            <input
+              type="checkbox"
+              id="acepto"
+              name="acepto"
+              required />
+            <label for="acepto" class="inline-label">
+              Acepto los términos y condiciones
+            </label>
+          </div>
+          
+          <div class="input-group">
+            <input
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              checked />
+            <label for="newsletter" class="inline-label">
+              Suscribirme al newsletter
+            </label>
+          </div>
+        </div>
+
+        <!-- Área de texto -->
+        <div class="form-group">
+          <label for="comentarios">Comentarios adicionales:</label>
+          <textarea
+            id="comentarios"
+            name="comentarios"
+            rows="4"
+            placeholder="Cuéntanos algo más sobre ti (opcional)"
+            pattern=".{0,500}"
+            title="Máximo 500 caracteres"></textarea>
+        </div>
+
+        <!-- Campo de archivo -->
+        <div class="form-group">
+          <label for="archivo">Subir archivo (PDF o DOC):</label>
+          <input
+            type="file"
+            id="archivo"
+            name="archivo"
+            accept=".pdf,.doc,.docx"
+            pattern=".*\.(pdf|doc|docx)$"
+            title="Solo archivos PDF o Word" />
+        </div>
+
+        <!-- Botones -->
+        <div class="form-group">
+          <button type="submit">🚀 Enviar Formulario</button>
+          <button type="reset">🔁 Limpiar Formulario</button>
+          <button type="button" id="botonPrueba">Botón de prueba</button>
+        </div>
+
+
+
+      <!-- ÁREA DONDE SE MOSTRARÁN LOS RESULTADOS -->
+      <div id="resultado" class="resultado">
+        <h3>✅ ¡Formulario enviado exitosamente!</h3>
+        <p>Estos son los datos que enviaste:</p>
+        <div id="datosEnviados"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
